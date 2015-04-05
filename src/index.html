@@ -1,0 +1,24 @@
+{%
+  var html = o.htmlWebpackPlugin.options;
+  var webpack = o.webpack;
+%}<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{%=html.title || 'Silicon Zucchini'%}</title>
+
+{% html.chunks.forEach(function (chunk) { %}
+  {%# html.include(webpack.assetsByChunkName, chunk, 'css') %}
+{% }); %}
+</head>
+<body class="{%= html.chunk %}">
+  <div id="container">{% if (html.serverRenderedContent) { %}<%= data.html %>{% } else { %}&nbsp;{% } %}</div>
+
+{% html.chunks.forEach(function (chunk) { %}
+  {%# html.include(webpack.assetsByChunkName, chunk, 'js') %}
+{% }); %}
+{% if (html.env.dev_server) { %}
+  {%# html.include(webpack.assetsByChunkName, 'hot', 'js') %}
+{% } %}
+</body>
+</html>

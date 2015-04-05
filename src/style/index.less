@@ -1,0 +1,21 @@
+@import "./config";
+@import "~normalize.css/normalize.css";
+@import "~bootstrap/less/bootstrap.less";
+@import "./mixins";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  line-height: @default-line-height;
+  background: @default-bg;
+  color: @default-color;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
